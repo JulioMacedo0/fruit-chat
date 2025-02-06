@@ -8,17 +8,17 @@ import {ThemeColors} from '../../theme/theme';
 type ButtonProps = {
   title: string;
   loading?: boolean;
-  buttonType: ButtonType;
+  buttonVariant: ButtonVariant;
 } & TouchableOpacityBoxProps;
 
-export type ButtonType = 'fill' | 'outline' | 'danger';
+export type ButtonVariant = 'fill' | 'outline' | 'danger';
 
 export type ButtonUI = {
   container: TouchableOpacityBoxProps;
   contentColor: ThemeColors;
 };
 
-const buttonTypes: Record<ButtonType, ButtonUI> = {
+const buttonVariants: Record<ButtonVariant, ButtonUI> = {
   fill: {
     container: {
       backgroundColor: 'primary',
@@ -40,8 +40,8 @@ const buttonTypes: Record<ButtonType, ButtonUI> = {
   },
 };
 
-export function Button({title, loading, buttonType, ...props}: ButtonProps) {
-  const buttonTypeSelected = buttonTypes[buttonType];
+export function Button({title, loading, buttonVariant, ...props}: ButtonProps) {
+  const buttonVariantSelected = buttonVariants[buttonVariant];
   return (
     <TouchableOpacityBox
       disabled={loading}
@@ -50,13 +50,13 @@ export function Button({title, loading, buttonType, ...props}: ButtonProps) {
       alignItems="center"
       justifyContent="center"
       borderRadius="s16"
-      {...buttonTypeSelected.container}
+      {...buttonVariantSelected.container}
       {...props}>
       {loading ? (
         <ActivityIndicator />
       ) : (
         <Text
-          color={buttonTypeSelected.contentColor}
+          color={buttonVariantSelected.contentColor}
           preset="paragraphMedium"
           bold>
           {title}
