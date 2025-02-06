@@ -1,9 +1,10 @@
 import React from 'react';
-import {ActivityIndicator} from 'react-native';
+
 import {Text} from '../Text/Text';
 
 import {TouchableOpacityBox, TouchableOpacityBoxProps} from '../Box/Box';
 import {ThemeColors} from '../../theme/theme';
+import {ActivityIndicator} from '../ActivityIndicator/ActivityIndicator';
 
 type ButtonProps = {
   title: string;
@@ -53,7 +54,10 @@ export function Button({title, loading, buttonVariant, ...props}: ButtonProps) {
       {...buttonVariantSelected.container}
       {...props}>
       {loading ? (
-        <ActivityIndicator />
+        <ActivityIndicator
+          size={32}
+          color={buttonVariantSelected.contentColor}
+        />
       ) : (
         <Text
           color={buttonVariantSelected.contentColor}
