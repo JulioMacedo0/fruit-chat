@@ -12,9 +12,15 @@ import {useAppTheme} from '../../hooks/useAppTheme/useAppTheme';
 type TextInputProps = {
   label?: string;
   errorMsg?: string;
+  boxProps?: BoxProps;
 } & RNTextInputProps;
 
-export function TextInput({label, errorMsg, ...props}: TextInputProps) {
+export function TextInput({
+  label,
+  errorMsg,
+  boxProps,
+  ...props
+}: TextInputProps) {
   const {colors} = useAppTheme();
   const inputRef = useRef<RNTextInput>(null);
 
@@ -29,8 +35,8 @@ export function TextInput({label, errorMsg, ...props}: TextInputProps) {
     padding: 's8',
   };
   return (
-    <Pressable onPress={focusInput}>
-      <Box>
+    <Box {...boxProps}>
+      <Pressable onPress={focusInput}>
         <Text preset="paragraphMedium" mb="s4">
           {label}
         </Text>
@@ -48,8 +54,8 @@ export function TextInput({label, errorMsg, ...props}: TextInputProps) {
             {errorMsg}
           </Text>
         ) : null}
-      </Box>
-    </Pressable>
+      </Pressable>
+    </Box>
   );
 }
 const $textInputStyle: TextStyle = {
