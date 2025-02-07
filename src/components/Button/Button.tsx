@@ -45,6 +45,7 @@ export function Button({title, loading, buttonVariant, ...props}: ButtonProps) {
   const buttonVariantSelected = buttonVariants[buttonVariant];
   return (
     <TouchableOpacityBox
+      activeOpacity={0.7}
       disabled={loading}
       paddingHorizontal="s20"
       height={50}
