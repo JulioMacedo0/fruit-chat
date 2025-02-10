@@ -5,17 +5,26 @@ import {Button} from '../../../components/Button/Button';
 import {TextInput} from '../../../components/TextInput/TextInput';
 import {Screen} from '../../../components/Screen/Screen';
 
-export function LoginScreen() {
+export function LoginScreen({}) {
   return (
     <Screen scrollabe>
-      <Text mb="s10" preset="headingLarge">
+      <Text mb="s10" preset="headingLarge" color="primary">
         Login
       </Text>
 
-      <TextInput label="E-mail" placeholder="Digite seu E-mail" />
-      <TextInput label="Senha" placeholder="Digite sua senha" />
+      <TextInput
+        keyboardType="email-address"
+        label="E-mail"
+        placeholder="Digite seu E-mail"
+        returnKeyType="next"
+      />
+      <TextInput
+        label="Senha"
+        placeholder="Digite sua senha"
+        returnKeyType="done"
+      />
 
-      <Text mt="s10" preset="paragraphSmall" color="primary">
+      <Text mt="s10" preset="paragraphSmall" color="primary" bold>
         Esqueceu a senha?
       </Text>
       <Button mt="s10" buttonVariant="fill" title="Entrar" mb="s10" />
