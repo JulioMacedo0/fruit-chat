@@ -3,10 +3,17 @@ import {Screen} from '../../../components/Screen/Screen';
 import {Text} from '../../../components/Text/Text';
 import {TextInput} from '../../../components/TextInput/TextInput';
 import {Button} from '../../../components/Button/Button';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../../routes/Routes';
 
-export function SignUpScreen() {
+type SignUpScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'SignUpScreen'
+>;
+
+export function SignUpScreen({}: SignUpScreenProps) {
   return (
-    <Screen scrollabe>
+    <Screen canGoBack scrollabe>
       <Text mb="s10" preset="headingLarge">
         Register
       </Text>
