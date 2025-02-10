@@ -2,7 +2,6 @@ import React from 'react';
 
 import {Text} from '../../../components/Text/Text';
 import {Button} from '../../../components/Button/Button';
-import {TextInput} from '../../../components/TextInput/TextInput';
 import {Screen} from '../../../components/Screen/Screen';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../../routes/Routes';
@@ -24,6 +23,7 @@ export function LoginScreen({navigation}: LoginScreenProps) {
       email: '',
       password: '',
     },
+    reValidateMode: 'onChange',
   });
 
   function submitForm(formValues: LoginScreenSchema) {
@@ -68,6 +68,7 @@ export function LoginScreen({navigation}: LoginScreenProps) {
         disabled={!formState.isValid}
         onPress={handleSubmit(submitForm)}
       />
+
       <Button
         buttonVariant="outline"
         title="Criar conta"
