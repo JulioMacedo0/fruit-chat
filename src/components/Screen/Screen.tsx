@@ -2,7 +2,12 @@ import React, {ReactNode} from 'react';
 import {Box, TouchableOpacityBox} from '../Box/Box';
 
 import {useAppSafeArea} from '../../hooks/useAppSafeArea/UseAppSafeArea';
-import {KeyboardAvoidingView, Platform} from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  StyleProp,
+  ViewStyle,
+} from 'react-native';
 import {Icon} from '../Icon/Icon';
 import {Text} from '../Text/Text';
 import {useNavigation} from '@react-navigation/native';
@@ -21,9 +26,13 @@ export function Screen({scrollabe, canGoBack = false, children}: ScreenProps) {
   const navigation = useNavigation();
   const {top, bottom} = useAppSafeArea();
 
+  const $keyboardAvoidingView: StyleProp<ViewStyle> = {
+    flex: 1,
+  };
+
   return (
     <KeyboardAvoidingView
-      style={{flex: 1}}
+      style={$keyboardAvoidingView}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <Container backgroundColor={colors.background}>
         <Box
