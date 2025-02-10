@@ -2,10 +2,12 @@ import React, {ReactNode} from 'react';
 import {Box, TouchableOpacityBox} from '../Box/Box';
 
 import {useAppSafeArea} from '../../hooks/useAppSafeArea/UseAppSafeArea';
-import {KeyboardAvoidingView, Platform, ScrollView} from 'react-native';
+import {KeyboardAvoidingView, Platform} from 'react-native';
 import {Icon} from '../Icon/Icon';
 import {Text} from '../Text/Text';
 import {useNavigation} from '@react-navigation/native';
+import {ScrollViewContainer, ViewContainer} from './components/ScreenContainer';
+import {useAppTheme} from '../../hooks/useAppTheme/useAppTheme';
 
 interface ScreenProps {
   children: ReactNode;
@@ -14,7 +16,8 @@ interface ScreenProps {
 }
 
 export function Screen({scrollabe, canGoBack = false, children}: ScreenProps) {
-  const Wrapper = scrollabe ? ScrollView : Box;
+  const {colors} = useAppTheme();
+  const Container = scrollabe ? ScrollViewContainer : ViewContainer;
   const navigation = useNavigation();
   const {top, bottom} = useAppSafeArea();
 
@@ -22,7 +25,7 @@ export function Screen({scrollabe, canGoBack = false, children}: ScreenProps) {
     <KeyboardAvoidingView
       style={{flex: 1}}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-      <Wrapper style={{flex: 1}} contentContainerStyle={{flexGrow: 1}}>
+      <Container backgroundColor={colors.background}>
         <Box
           flex={1}
           paddingHorizontal="s24"
@@ -44,7 +47,7 @@ export function Screen({scrollabe, canGoBack = false, children}: ScreenProps) {
           )}
           {children}
         </Box>
-      </Wrapper>
+      </Container>
     </KeyboardAvoidingView>
   );
 }
