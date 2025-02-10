@@ -13,6 +13,7 @@ export function Router() {
         initialRouteName="LoginScreen"
         screenOptions={{
           headerShown: false,
+          fullScreenGestureEnabled: true,
         }}>
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
