@@ -9,15 +9,15 @@ import {Box, BoxProps} from '../Box/Box';
 import {$fontFamily, $fontSizes, Text} from '../Text/Text';
 import {useAppTheme} from '../../hooks/useAppTheme/useAppTheme';
 
-type TextInputProps = {
+export type TextInputProps = {
   label?: string;
-  errorMsg?: string;
+  errorMessage?: string;
   boxProps?: BoxProps;
 } & RNTextInputProps;
 
 export function TextInput({
   label,
-  errorMsg,
+  errorMessage,
   boxProps,
   ...props
 }: TextInputProps) {
@@ -30,8 +30,8 @@ export function TextInput({
   }
 
   const $textInputContainer: BoxProps = {
-    borderWidth: errorMsg ? 2 : 1,
-    borderColor: errorMsg ? 'error' : onFocus ? 'primary' : 'gray4',
+    borderWidth: errorMessage ? 2 : 1,
+    borderColor: errorMessage ? 'error' : onFocus ? 'primary' : 'gray4',
     borderRadius: 's12',
     padding: 's8',
   };
@@ -52,9 +52,9 @@ export function TextInput({
           />
         </Box>
 
-        {errorMsg ? (
+        {errorMessage ? (
           <Text preset="paragraphSmall" bold color="error" mt="s10">
-            {errorMsg}
+            {errorMessage}
           </Text>
         ) : null}
       </Pressable>
