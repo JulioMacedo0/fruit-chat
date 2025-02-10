@@ -7,35 +7,20 @@
 
 import React from 'react';
 
-import {SafeAreaView} from 'react-native';
-import {Text} from './src/components/Text/Text';
 import {ThemeProvider} from '@shopify/restyle';
 import {theme} from './src/theme/theme';
-import {Button} from './src/components/Button/Button';
+
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+
+import {Router} from './src/routes/Routes';
 
 function App(): React.JSX.Element {
   return (
-    <ThemeProvider theme={theme}>
-      <SafeAreaView style={{padding: 20}}>
-        <Text preset="headingLarge">Coffe Stack</Text>
-        <Text preset="headingLarge">Coffe Stack</Text>
-        <Button
-          buttonVariant="danger"
-          title="Entrar"
-          mb="s10"
-          loading
-          disabled
-        />
-        <Button
-          buttonVariant="outline"
-          title="Entrar"
-          mb="s10"
-          loading
-          disabled
-        />
-        <Button buttonVariant="fill" title="Entrar" loading disabled />
-      </SafeAreaView>
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider theme={theme}>
+        <Router />
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
 
