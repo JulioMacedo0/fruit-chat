@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   Pressable,
   TextInput as RNTextInput,
@@ -21,6 +21,7 @@ export function TextInput({
   boxProps,
   ...props
 }: TextInputProps) {
+  const [onFocus, setOnFocus] = useState(false);
   const {colors} = useAppTheme();
   const inputRef = useRef<RNTextInput>(null);
 
@@ -30,20 +31,22 @@ export function TextInput({
 
   const $textInputContainer: BoxProps = {
     borderWidth: errorMsg ? 2 : 1,
-    borderColor: errorMsg ? 'error' : 'gray4',
+    borderColor: errorMsg ? 'error' : onFocus ? 'primary' : 'gray4',
     borderRadius: 's12',
     padding: 's8',
   };
   return (
     <Box {...boxProps}>
       <Pressable onPress={focusInput}>
-        <Text preset="paragraphMedium" mb="s4">
+        <Text preset="paragraphMedium" mb="s4" color="primary">
           {label}
         </Text>
         <Box {...$textInputContainer}>
           <RNTextInput
+            onFocus={() => setOnFocus(true)}
+            onBlur={() => setOnFocus(false)}
             ref={inputRef}
-            placeholderTextColor={colors.gray2}
+            placeholderTextColor={onFocus ? colors.primary : colors.gray2}
             style={$textInputStyle}
             {...props}
           />
