@@ -16,9 +16,11 @@ export function Screen({scrollabe, children}: ScreenProps) {
 
   return (
     <KeyboardAvoidingView
+      style={{flex: 1}}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-      <Wrapper>
+      <Wrapper style={{flex: 1}} contentContainerStyle={{flexGrow: 1}}>
         <Box
+          flex={1}
           paddingHorizontal="s24"
           backgroundColor="background"
           style={{paddingTop: top, paddingBottom: bottom}}>
