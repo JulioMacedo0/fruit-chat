@@ -1,5 +1,7 @@
 import React from 'react';
+
 import {icons, LucideProps, ArrowLeft, X} from 'lucide-react-native';
+
 import {useAppTheme} from '../../hooks/useAppTheme/useAppTheme';
 
 type IconKeys = keyof typeof icons;
