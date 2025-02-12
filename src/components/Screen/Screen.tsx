@@ -14,9 +14,7 @@ import {Box, TouchableOpacityBox} from '../Box/Box';
 import {Icon} from '../Icon/Icon';
 import {Text} from '../Text/Text';
 
-
 import {ScrollViewContainer, ViewContainer} from './components/ScreenContainer';
-
 
 interface ScreenProps {
   children: ReactNode;
@@ -41,7 +39,7 @@ export function Screen({scrollabe, canGoBack = false, children}: ScreenProps) {
       <Container backgroundColor={colors.background}>
         <Box
           flex={1}
-          paddingHorizontal="s24"
+          paddingHorizontal="s14"
           backgroundColor="background"
           style={{paddingTop: top, paddingBottom: bottom}}>
           {canGoBack && (
