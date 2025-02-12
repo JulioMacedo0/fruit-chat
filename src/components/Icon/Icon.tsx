@@ -1,6 +1,9 @@
 import React from 'react';
-import {Pressable, PressableProps} from 'react-native';
 
+import {
+  TouchableOpacityBox,
+  TouchableOpacityBoxProps,
+} from 'components/Box/Box';
 import {icons, LucideProps, ArrowLeft, X} from 'lucide-react-native';
 
 import {useAppTheme} from '../../hooks/useAppTheme/useAppTheme';
@@ -11,10 +14,10 @@ type IconNames = Extract<IconKeys, 'ArrowLeft'>;
 
 type IconProps = {
   name: IconNames;
-  pressableProps?: PressableProps;
+  touchableOpacityBoxProps?: TouchableOpacityBoxProps;
 } & LucideProps;
 
-export function Icon({name, pressableProps, ...props}: IconProps) {
+export function Icon({name, touchableOpacityBoxProps, ...props}: IconProps) {
   const {colors} = useAppTheme();
 
   const baseStyle: LucideProps = {
@@ -23,9 +26,9 @@ export function Icon({name, pressableProps, ...props}: IconProps) {
   };
   const IconCustom = createIcon(name);
   return (
-    <Pressable {...pressableProps}>
+    <TouchableOpacityBox activeOpacity={0.7} {...touchableOpacityBoxProps}>
       <IconCustom {...baseStyle} {...props} />
-    </Pressable>
+    </TouchableOpacityBox>
   );
 }
 
