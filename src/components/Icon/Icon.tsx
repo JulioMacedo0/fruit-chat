@@ -4,16 +4,23 @@ import {
   TouchableOpacityBox,
   TouchableOpacityBoxProps,
 } from 'components/Box/Box';
-import {icons, LucideProps, ArrowLeft, X} from 'lucide-react-native';
+import {
+  icons,
+  LucideProps,
+  ArrowLeft,
+  X,
+  Camera,
+  EllipsisVertical,
+} from 'lucide-react-native';
 
 import {useAppTheme} from '../../hooks/useAppTheme/useAppTheme';
 
 type IconKeys = keyof typeof icons;
 
-type IconNames = Extract<IconKeys, 'ArrowLeft'>;
+// type IconNames = Extract<IconKeys, 'ArrowLeft' | 'Camera' | ''>;
 
 type IconProps = {
-  name: IconNames;
+  name: IconKeys;
   touchableOpacityBoxProps?: TouchableOpacityBoxProps;
 } & LucideProps;
 
@@ -32,10 +39,14 @@ export function Icon({name, touchableOpacityBoxProps, ...props}: IconProps) {
   );
 }
 
-function createIcon(name: IconNames) {
+function createIcon(name: IconKeys) {
   switch (name) {
     case 'ArrowLeft':
       return ArrowLeft;
+    case 'Camera':
+      return Camera;
+    case 'EllipsisVertical':
+      return EllipsisVertical;
     default:
       return X;
   }

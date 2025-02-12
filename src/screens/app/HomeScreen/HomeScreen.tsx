@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {HeaderApp} from 'components/HeaderApp/HeaderApp';
+
 import {Screen, Text} from '@components';
 import {AppTabScreenProps} from '@routes';
 
@@ -7,6 +9,7 @@ import {AppTabScreenProps} from '@routes';
 export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>) {
   return (
     <Screen scrollabe>
+      <HeaderApp />
       <Text>Home</Text>
     </Screen>
   );
