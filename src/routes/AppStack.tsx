@@ -1,13 +1,14 @@
 import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {HomeScreen} from 'screens/auth/app/HomeScreen/HomeScree';
 
-export type ApptackParamList = {
+import {HomeScreen} from '@screens';
+
+export type AppStackParamList = {
   HomeScreen: undefined;
 };
 
-const Stack = createNativeStackNavigator<ApptackParamList>();
+const Stack = createNativeStackNavigator<AppStackParamList>();
 
 export function AppStack() {
   return (
