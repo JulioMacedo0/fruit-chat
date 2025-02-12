@@ -1,4 +1,5 @@
 import React from 'react';
+import {Pressable, PressableProps} from 'react-native';
 
 import {icons, LucideProps, ArrowLeft, X} from 'lucide-react-native';
 
@@ -10,9 +11,10 @@ type IconNames = Extract<IconKeys, 'ArrowLeft'>;
 
 type IconProps = {
   name: IconNames;
+  pressableProps?: PressableProps;
 } & LucideProps;
 
-export function Icon({name, ...props}: IconProps) {
+export function Icon({name, pressableProps, ...props}: IconProps) {
   const {colors} = useAppTheme();
 
   const baseStyle: LucideProps = {
@@ -20,7 +22,11 @@ export function Icon({name, ...props}: IconProps) {
     size: 28,
   };
   const IconCustom = createIcon(name);
-  return <IconCustom {...baseStyle} {...props} />;
+  return (
+    <Pressable {...pressableProps}>
+      <IconCustom {...baseStyle} {...props} />
+    </Pressable>
+  );
 }
 
 function createIcon(name: IconNames) {
