@@ -1,11 +1,12 @@
 import React from 'react';
 
 import {Screen, Text} from '@components';
-import {AppScreenProps} from '@routes';
+import {AppTabScreenProps} from '@routes';
 
-export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>) {
   return (
-    <Screen>
+    <Screen scrollabe>
       <Text>Home</Text>
     </Screen>
   );
