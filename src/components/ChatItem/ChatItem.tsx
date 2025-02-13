@@ -1,41 +1,46 @@
 import React from 'react';
 
+import {ProfilePicture} from 'components/ProfilePicture/ProfilePicture';
 import {Chat} from 'Types';
 
-import {Box, Text} from '@components';
+import {user} from 'constants/user.mock';
+
+import {Box, TouchableOpacityBox} from '@components';
+
+import {LastMessage} from './components/LastMessage/LastMessage';
+import {LastMessageDate} from './components/LastMessageDate/LastMessageDate';
+import {TitleChat} from './components/TitleChat/TitleChat';
+import {UnreadMessagesCount} from './components/UnreadMessagesCount/UnreadMessagesCount';
 
 type ChatItemProps = {} & Chat;
 
-export function ChatItem({messages, name}: ChatItemProps) {
-  const lastIndexMessage = messages.length - 1;
-  const lastMensage =
-    messages[lastIndexMessage].content.type === 'text'
-      ? messages[lastIndexMessage].content.text
-      : messages[lastIndexMessage].content.duration;
-  const unreadMessageQtd = messages.filter(
-    currentValue => !currentValue.status.read,
-  ).length;
+export function ChatItem({
+  messages,
+  name,
+  type,
+  participants,
+  groupPicture,
+}: ChatItemProps) {
+  const picture =
+    type === 'group'
+      ? groupPicture
+      : participants.find(participant => participant.id !== user.id)
+          ?.profilePicture;
 
   return (
-    <Box flexDirection="row" justifyContent="space-between">
-      <Box>
-        <Text>{name}</Text>
-        <Text>{lastMensage}</Text>
-      </Box>
-      <Box alignContent="flex-end">
-        <Text>{messages[messages.length - 1].timestamp}</Text>
+    <TouchableOpacityBox activeOpacity={0.5} flexDirection="row">
+      <ProfilePicture uri={picture} />
+      <Box flex={1} flexDirection="row" justifyContent="space-between">
+        <Box>
+          <TitleChat participants={participants} type={type} name={name} />
+          <LastMessage messages={messages} />
+        </Box>
+        <Box alignItems="flex-end">
+          <LastMessageDate messages={messages} />
 
-        <Box
-          borderRadius="s16"
-          bg="primary"
-          padding="s4"
-          justifyContent="center"
-          alignItems="center">
-          <Text color="grayWhite" preset="paragraphSmall">
-            {unreadMessageQtd}
-          </Text>
+          <UnreadMessagesCount messages={messages} />
         </Box>
       </Box>
-    </Box>
+    </TouchableOpacityBox>
   );
 }
