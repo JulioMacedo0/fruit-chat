@@ -7,3 +7,4 @@ export * from './Icon/Icon';
 export * from './Screen/Screen';
 export * from './FormTextInput/FormTextInput';
 export * from './ChatItem/ChatItem';
+export * from './ItemSeparator/ItemSeparator';
