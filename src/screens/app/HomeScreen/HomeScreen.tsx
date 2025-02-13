@@ -4,24 +4,28 @@ import {FlatList} from 'react-native';
 import {HeaderApp} from 'components/HeaderApp/HeaderApp';
 import {Chat} from 'Types';
 
-import {Box, ChatItem, Screen, Text} from '@components';
+import {user} from 'constants/user.mock';
+
+import {ChatItem, Screen} from '@components';
 import {AppTabScreenProps} from '@routes';
 
 const chats: Chat[] = [
   {
     chat_id: 'group-12345',
     type: 'private',
-    name: 'Maria Oliveira',
     participants: [
-      {id: '+5511999999999', name: 'João Silva'},
-      {id: '+5511988888888', name: 'Maria Oliveira'},
+      user,
+      {
+        id: '+5511988888888',
+        name: 'Maria Oliveira',
+        profilePicture: 'https://randomuser.me/api/portraits/women/90.jpg',
+      },
     ],
     messages: [
       {
         message_id: 'msg-001',
         timestamp: '2025-02-13T12:34:56Z',
-        from: '+5511999999999',
-        to: '+5511988888888',
+        from: user.id,
         content: {
           type: 'text',
           text: 'Olá, tudo bem?',
@@ -35,7 +39,6 @@ const chats: Chat[] = [
         message_id: 'msg-002',
         timestamp: '2025-02-13T12:35:10Z',
         from: '+5511988888888',
-        to: '+5511999999999',
         content: {
           type: 'text',
           text: 'Oi! Tudo ótimo e você?',
