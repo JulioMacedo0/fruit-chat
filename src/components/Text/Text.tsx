@@ -83,7 +83,7 @@ export const $fontSizes: Record<TextVariants, TextStyle> = {
   paragraphMedium: {fontSize: 16, lineHeight: 22.4},
   paragraphSmall: {fontSize: 14, lineHeight: 19.6},
   paragraphCaption: {fontSize: 12, lineHeight: 16.8},
-  paragraphCaptionSmall: {fontSize: 10, lineHeight: 14},
+  paragraphCaptionSmall: {fontSize: 11, lineHeight: 15},
 };
 
 export const $fontFamily = {
