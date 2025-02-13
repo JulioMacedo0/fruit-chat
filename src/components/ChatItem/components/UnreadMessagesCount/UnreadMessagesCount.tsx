@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleProp, ViewStyle} from 'react-native';
 
+import {Message} from '@types';
 import {countDigits} from 'helpers/countDigits';
-import {Message} from 'Types';
 
 import {Box, Text} from '@components';
 

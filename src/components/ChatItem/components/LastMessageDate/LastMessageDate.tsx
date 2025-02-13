@@ -1,8 +1,8 @@
 import React from 'react';
 
+import {Message} from '@types';
 import {format, isToday, isYesterday} from 'date-fns';
 import {ptBR} from 'date-fns/locale';
-import {Message} from 'Types';
 
 import {Text} from '@components';
 

@@ -1,4 +1,4 @@
-import {Participant} from 'Types';
+import {Participant} from '@types';
 
 export const user: Participant = {
   id: '+5563999531433',

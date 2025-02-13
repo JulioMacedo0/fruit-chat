@@ -1,7 +1,7 @@
 import React from 'react';
 
+import {Chat} from '@types';
 import {ProfilePicture} from 'components/ProfilePicture/ProfilePicture';
-import {Chat} from 'Types';
 
 import {user} from 'constants/user.mock';
 
@@ -37,7 +37,6 @@ export function ChatItem({
         </Box>
         <Box alignItems="flex-end">
           <LastMessageDate messages={messages} />
-
           <UnreadMessagesCount messages={messages} />
         </Box>
       </Box>

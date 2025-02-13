@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Message} from 'Types';
+import {Message} from '@types';
 
 import {Text} from '@components';
 

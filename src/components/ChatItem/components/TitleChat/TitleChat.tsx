@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Chat} from 'Types';
+import {Chat} from '@types';
 
 import {user} from 'constants/user.mock';
 
