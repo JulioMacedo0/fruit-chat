@@ -13,6 +13,7 @@
       //  "@services": ["./services"],
       //  "@types": ["./types"],
       //  "@utils": ["./utils"],
+      "@types": ["./types"],
       "@routes": ["./routes"],
       "@theme": ["./theme"]
     }
