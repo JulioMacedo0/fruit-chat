@@ -4,7 +4,7 @@ import {Box, Icon, Text} from '@components';
 
 export function HeaderApp() {
   return (
-    <Box flexDirection="row" justifyContent="space-between">
+    <Box mb="s10" flexDirection="row" justifyContent="space-between">
       <Text preset="headingLarge" bold color="primary">
         Fruit Chat
       </Text>
