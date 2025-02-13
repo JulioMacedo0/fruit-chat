@@ -6,7 +6,7 @@
       //"@assets/*": ["assets/*"],
       "@components": ["./components"],
       //  "@config/*": ["./config/*"],
-      // "@constants/*": ["./constants/*"],
+      "@constants": ["./constants"],
       "@hooks": ["./hooks"],
       //   "@navigation": ["./navigation"],
       "@screens": ["./screens"],
