@@ -8,3 +8,4 @@ export * from './Screen/Screen';
 export * from './FormTextInput/FormTextInput';
 export * from './ChatItem/ChatItem';
 export * from './ItemSeparator/ItemSeparator';
+export * from './HeaderApp/HeaderApp';
