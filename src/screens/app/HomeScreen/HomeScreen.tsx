@@ -21,7 +21,11 @@ export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>) {
         keyExtractor={item => item.chat_id}
         ItemSeparatorComponent={ItemSeparator}
         renderItem={item => (
-          <ChatItem {...item.item} onPressCallback={NavigateToUserChat} />
+          <ChatItem
+            index={item.index}
+            {...item.item}
+            onPressCallback={NavigateToUserChat}
+          />
         )}
         data={chats}
       />
