@@ -14,5 +14,12 @@ const $imageStyle: StyleProp<ImageStyle> = {
 };
 
 export const ProfilePicture = ({uri}: ProfilePictureProps) => {
-  return <Image src={uri} style={$imageStyle} />;
+  return (
+    <Image
+      source={{
+        uri,
+      }}
+      style={$imageStyle}
+    />
+  );
 };
