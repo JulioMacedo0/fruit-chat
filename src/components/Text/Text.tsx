@@ -8,7 +8,7 @@ import {Theme} from '../../theme/theme';
 const SHText = createText<Theme>();
 type SHTextProps = ComponentProps<typeof SHText>;
 
-type TextProps = SHTextProps & {
+export type TextProps = SHTextProps & {
   style?: TextStyle;
   preset?: TextVariants;
   bold?: boolean;
