@@ -49,7 +49,7 @@ export const chats: Chat[] = [
     participants: [
       user,
       {
-        id: '+5511988888888',
+        id: '+5511988888855',
         name: 'Ted Ukl',
         profilePicture: 'https://randomuser.me/api/portraits/women/90.jpg',
       },
@@ -58,7 +58,7 @@ export const chats: Chat[] = [
       {
         message_id: 'msg-001',
         timestamp: '2025-02-13T12:34:56Z',
-        from: '+5511988888887',
+        from: '+5511988888855',
         content: {
           type: 'text',
           text: 'Olá, tudo bem?',
