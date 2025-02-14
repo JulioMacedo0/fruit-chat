@@ -18,6 +18,7 @@ export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>) {
         textProps={{preset: 'headingLarge', color: 'primary'}}
       />
       <FlatList
+        keyExtractor={item => item.chat_id}
         ItemSeparatorComponent={ItemSeparator}
         renderItem={item => (
           <ChatItem {...item.item} onPressCallback={NavigateToUserChat} />
