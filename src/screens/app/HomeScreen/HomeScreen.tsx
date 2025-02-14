@@ -1,20 +1,27 @@
 import React from 'react';
 import {FlatList} from 'react-native';
 
-import {HeaderApp} from 'components/HeaderApp/HeaderApp';
+import {Participant} from '@types';
 
-import {ChatItem, ItemSeparator, Screen} from '@components';
+import {ChatItem, HeaderApp, ItemSeparator, Screen} from '@components';
 import {chats} from '@constants';
 import {AppTabScreenProps} from '@routes';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>) {
+  function NavigateToUserChat(participant: Pick<Participant, 'id'>) {
+    navigation.navigate('ChatScreen', {participant});
+  }
   return (
     <Screen>
-      <HeaderApp />
+      <HeaderApp
+        title="Fruit Chat"
+        textProps={{preset: 'headingLarge', color: 'primary'}}
+      />
       <FlatList
         ItemSeparatorComponent={ItemSeparator}
-        renderItem={item => <ChatItem {...item.item} />}
+        renderItem={item => (
+          <ChatItem {...item.item} onPressCallback={NavigateToUserChat} />
+        )}
         data={chats}
       />
     </Screen>
