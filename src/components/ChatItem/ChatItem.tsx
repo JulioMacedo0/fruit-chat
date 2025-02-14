@@ -7,6 +7,7 @@ import {user} from 'constants/user.mock';
 
 import {Box, TouchableOpacityBox} from '@components';
 
+import {AnimatedChatItem} from './Animation/AnimatedChatItem/AnimatedChatItem';
 import {LastMessage} from './components/LastMessage/LastMessage';
 import {LastMessageDate} from './components/LastMessageDate/LastMessageDate';
 import {TitleChat} from './components/TitleChat/TitleChat';
@@ -14,6 +15,7 @@ import {UnreadMessagesCount} from './components/UnreadMessagesCount/UnreadMessag
 
 type ChatItemProps = {
   onPressCallback: (participant: Participant) => void;
+  index: number;
 } & Chat;
 
 export function ChatItem({
@@ -22,6 +24,7 @@ export function ChatItem({
   type,
   participants,
   groupPicture,
+  index,
   onPressCallback,
 }: ChatItemProps) {
   const picture =
@@ -35,25 +38,27 @@ export function ChatItem({
   );
 
   return (
-    <TouchableOpacityBox
-      activeOpacity={0.5}
-      flexDirection="row"
-      onPress={() =>
-        participant?.id
-          ? onPressCallback(participant)
-          : console.log('Chat indisponivel')
-      }>
-      <ProfilePicture uri={picture} />
-      <Box flex={1} flexDirection="row" justifyContent="space-between">
-        <Box>
-          <TitleChat participants={participants} type={type} name={name} />
-          <LastMessage messages={messages} />
+    <AnimatedChatItem index={index}>
+      <TouchableOpacityBox
+        activeOpacity={0.5}
+        flexDirection="row"
+        onPress={() =>
+          participant?.id
+            ? onPressCallback(participant)
+            : console.log('Chat indisponivel')
+        }>
+        <ProfilePicture uri={picture} />
+        <Box flex={1} flexDirection="row" justifyContent="space-between">
+          <Box>
+            <TitleChat participants={participants} type={type} name={name} />
+            <LastMessage messages={messages} />
+          </Box>
+          <Box alignItems="flex-end">
+            <LastMessageDate messages={messages} />
+            <UnreadMessagesCount messages={messages} />
+          </Box>
         </Box>
-        <Box alignItems="flex-end">
-          <LastMessageDate messages={messages} />
-          <UnreadMessagesCount messages={messages} />
-        </Box>
-      </Box>
-    </TouchableOpacityBox>
+      </TouchableOpacityBox>
+    </AnimatedChatItem>
   );
 }
