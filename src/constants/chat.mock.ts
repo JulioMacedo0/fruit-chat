@@ -51,7 +51,7 @@ export const chats: Chat[] = [
       {
         id: '+5511988888855',
         name: 'Ted Ukl',
-        profilePicture: 'https://randomuser.me/api/portraits/women/90.jpg',
+        profilePicture: 'https://randomuser.me/api/portraits/men/93.jpg',
       },
     ],
     messages: [
