@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Chat, Participant} from '@types';
+import {Chat} from '@types';
 import {ProfilePicture} from 'components/ProfilePicture/ProfilePicture';
 
 import {user} from 'constants/user.mock';
@@ -14,7 +14,7 @@ import {TitleChat} from './components/TitleChat/TitleChat';
 import {UnreadMessagesCount} from './components/UnreadMessagesCount/UnreadMessagesCount';
 
 type ChatItemProps = {
-  onPressCallback: (participant: Participant) => void;
+  onPressCallback: (chat: Pick<Chat, 'chat_id'>) => void;
   index: number;
 } & Chat;
 
@@ -25,6 +25,7 @@ export function ChatItem({
   participants,
   groupPicture,
   index,
+  chat_id,
   onPressCallback,
 }: ChatItemProps) {
   const picture =
@@ -33,20 +34,12 @@ export function ChatItem({
       : participants.find(participant => participant.id !== user.id)
           ?.profilePicture;
 
-  const participant = participants.find(
-    participantItem => participantItem.id !== user.id,
-  );
-
   return (
     <AnimatedChatItem index={index}>
       <TouchableOpacityBox
         activeOpacity={0.5}
         flexDirection="row"
-        onPress={() =>
-          participant?.id
-            ? onPressCallback(participant)
-            : console.log('Chat indisponivel')
-        }>
+        onPress={() => onPressCallback({chat_id})}>
         <ProfilePicture uri={picture} />
         <Box flex={1} flexDirection="row" justifyContent="space-between">
           <Box>
