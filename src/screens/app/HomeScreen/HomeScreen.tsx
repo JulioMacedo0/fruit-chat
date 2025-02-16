@@ -1,15 +1,15 @@
 import React from 'react';
 import {FlatList} from 'react-native';
 
-import {Participant} from '@types';
+import {Chat} from '@types';
 
 import {ChatItem, HeaderApp, ItemSeparator, Screen} from '@components';
 import {chats} from '@constants';
 import {AppTabScreenProps} from '@routes';
 
 export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>) {
-  function NavigateToUserChat(participant: Pick<Participant, 'id'>) {
-    navigation.navigate('ChatScreen', {participant});
+  function NavigateToUserChat(chat: Pick<Chat, 'chat_id'>) {
+    navigation.navigate('ChatScreen', {chat});
   }
   return (
     <Screen>
